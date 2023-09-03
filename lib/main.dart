@@ -1,3 +1,4 @@
+import 'package:crud_frontend/get.dart';
 import 'package:crud_frontend/post.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,11 @@ class MainApp extends StatelessWidget {
                   );
                 },
                 child: const Text("POST")),
-            ElevatedButton(onPressed: () {}, child: const Text("GET")),
+            ElevatedButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const GET();
+              },));
+            }, child: const Text("GET")),
             ElevatedButton(onPressed: () {}, child: const Text("UPDATE")),
             ElevatedButton(onPressed: () {}, child: const Text("DELETE"))
           ],
