@@ -1,7 +1,11 @@
+import 'package:crud_frontend/post.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MaterialApp(
+    title: "APP",
+    home: MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {
@@ -9,17 +13,27 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            children: [
-              ElevatedButton(onPressed: () {}, child: const Text("POST")),
-               ElevatedButton(onPressed: () {}, child: const Text("GET")),
-                ElevatedButton(onPressed: () {}, child: const Text("UPDATE")),
-                 ElevatedButton(onPressed: () {}, child: const Text("DELETE"))
-            ],
-          ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const POST();
+                      },
+                    ),
+                  );
+                },
+                child: const Text("POST")),
+            ElevatedButton(onPressed: () {}, child: const Text("GET")),
+            ElevatedButton(onPressed: () {}, child: const Text("UPDATE")),
+            ElevatedButton(onPressed: () {}, child: const Text("DELETE"))
+          ],
         ),
       ),
     );
